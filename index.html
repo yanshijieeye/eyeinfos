@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>眼科医疗资讯平台</title>
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #f8fafc;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1E88E5;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .comment-item {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-eye text-2xl text-blue-600 mr-2"></i>
+                <span class="text-xl font-bold text-blue-600">眼科医疗资讯</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-blue-600">首页</a>
+                <a href="#news" class="nav-link text-gray-700 hover:text-blue-600">新闻资讯</a>
+                <a href="#experts" class="nav-link text-gray-700 hover:text-blue-600">专家观点</a>
+                <a href="#knowledge" class="nav-link text-gray-700 hover:text-blue-600">疾病知识</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">关于我们</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="搜索..." class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页内容 -->
+    <section id="home" class="py-8">
+        <div class="container mx-auto px-4">
+            <!-- 轮播图 -->
+            <div class="relative overflow-hidden rounded-xl mb-8 h-96">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 opacity-90"></div>
+                <div class="relative h-full flex items-center justify-center">
+                    <div class="text-center text-white px-4">
+                        <h1 class="text-4xl font-bold mb-4">专业眼科医疗资讯平台</h1>
+                        <p class="text-xl mb-6">提供最新眼科医疗动态、专家观点和疾病知识</p>
+                        <button class="bg-white text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition">了解更多</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 最新资讯 -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">最新眼科医疗资讯</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="article-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <img src="https://p3-search.byteimg.com/obj/labis/94cc70bd60890eb7482c8d3ba667f0d1" alt="眼科新闻配图" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-500">行业动态</span>
+                                <span class="text-sm text-gray-500">2024-05-15</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">新型白内障手术技术临床应用</h3>
+                            <p class="text-gray-600 mb-4">最新研究显示，新型白内障手术技术可显著提高手术安全性和患者满意度...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500"><i class="fas fa-eye mr-1"></i> 256</span>
+                                <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <img src="https://p3-search.byteimg.com/obj/labis/082642dd3116f2f4b178eb1940b5bd8c" alt="眼科手术示意图" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-500">临床研究</span>
+                                <span class="text-sm text-gray-500">2024-05-10</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">青光眼早期诊断新方法</h3>
+                            <p class="text-gray-600 mb-4">研究人员开发出一种新型青光眼早期诊断技术，准确率高达95%...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500"><i class="fas fa-eye mr-1"></i> 189</span>
+                                <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                        <img src="https://p3-search.byteimg.com/obj/labis/5a54da76e299b5739d2c9eb580a1a9d5" alt="视力保护科普" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-500">政策法规</span>
+                                <span class="text-sm text-gray-500">2024-05-05</span>
+                            </div>
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">青少年近视防控新政策解读</h3>
+                            <p class="text-gray-600 mb-4">国家卫健委发布最新青少年近视防控指南，提出多项创新措施...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500"><i class="fas fa-eye mr-1"></i> 312</span>
+                                <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 热门文章 -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">热门文章</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-md p-6 flex">
+                        <img src="https://p3-search.byteimg.com/obj/labis/76dc91469ccc9bd8e4d9d7cdca4d4e74" alt="眼科检查场景" class="w-32 h-32 object-cover rounded-lg mr-4">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">眼科检查全攻略</h3>
+                            <p class="text-gray-600 mb-3">了解常见眼科检查项目及其意义，帮助您更好地保护视力健康...</p>
+                            <div class="flex items-center">
+                                <span class="text-sm text-gray-500 mr-4"><i class="fas fa-eye mr-1"></i> 428</span>
+                                <span class="text-sm text-gray-500"><i class="fas fa-thumbs-up mr-1"></i> 56</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md p-6 flex">
+                        <img src="https://p3-search.byteimg.com/obj/labis/caeb13277348e2e7c1ee25a677454fd0" alt="医生团队" class="w-32 h-32 object-cover rounded-lg mr-4">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-2 text-gray-800">眼科医生团队专访</h3>
+                            <p class="text-gray-600 mb-3">专访国内顶尖眼科医疗团队，分享临床经验和最新研究成果...</p>
+                            <div class="flex items-center">
+                                <span class="text-sm text-gray-500 mr-4"><i class="fas fa-eye mr-1"></i> 376</span>
+                                <span class="text-sm text-gray-500"><i class="fas fa-thumbs-up mr-1"></i> 42</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻详情页 -->
+    <section id="news-detail" class="py-8 bg-gray-50 hidden">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <div class="mb-6">
+                    <h1 class="text-2xl md:text-3xl font-bold mb-4 text-gray-800">新型白内障手术技术临床应用研究取得突破</h1>
+                    <div class="flex flex-wrap items-center text-sm text-gray-500 mb-4">
+                        <span class="mr-4"><i class="fas fa-user-md mr-1"></i> 张医生</span>
+                        <span class="mr-4"><i class="far fa-clock mr-1"></i> 2024-05-15</span>
+                        <span><i class="fas fa-eye mr-1"></i> 256</span>
+                    </div>
+                    <img src="https://p3-search.byteimg.com/obj/labis/082642dd3116f2f4b178eb1940b5bd8c" alt="眼科手术示意图" class="w-full rounded-lg mb-6">
+                    
+                    <div class="prose max-w-none text-gray-700 mb-8">
+                        <p>最新研究显示，新型白内障手术技术可显著提高手术安全性和患者满意度。该技术由国内眼科专家团队研发，已在多家三甲医院完成临床试验。</p>
+                        <p class="mt-4">白内障是全球范围内导致视力障碍和失明的主要原因之一。传统白内障手术虽然效果显著，但仍存在一定风险和并发症。新型技术通过改进手术器械和操作流程，将手术时间缩短了30%，术后恢复期也明显缩短。</p>
+                        <p class="mt-4">研究团队负责人表示："这项技术的核心创新在于手术切口的精确控制和人工晶体的精准植入。我们使用了新型生物材料制作的人工晶体，与人体组织相容性更好，术后视觉效果更自然。"</p>
+                        <p class="mt-4">临床试验数据显示，接受新型手术的患者术后视力恢复更快，并发症发生率降低了45%，患者满意度达到98%。该技术预计将在今年下半年在全国范围内推广。</p>
+                    </div>
+                    
+                    <div class="flex justify-between items-center border-t border-b border-gray-200 py-4 mb-6">
+                        <div class="flex items-center">
+                            <button id="like-btn" class="flex items-center text-gray-600 hover:text-blue-600 transition">
+                                <i class="far fa-thumbs-up text-xl mr-2"></i>
+                                <span id="like-count">0</span>
+                            </button>
+                        </div>
+                        <div>
+                            <button id="share-btn" class="flex items-center text-gray-600 hover:text-blue-600 transition">
+                                <i class="fas fa-share-alt text-xl mr-2"></i>
+                                <span>分享</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">评论</h3>
+                        <div class="mb-4">
+                            <textarea id="comment-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="写下您的评论..."></textarea>
+                            <button id="submit-comment" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">提交评论</button>
+                        </div>
+                        <div id="comments-list" class="space-y-4">
+                            <!-- 评论将在这里动态添加 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专家观点页 -->
+    <section id="experts" class="py-8 bg-gray-50 hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-gray-800">专家观点</h2>
+            
+            <div class="mb-12">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                    <img src="https://p3-search.byteimg.com/obj/labis/06d8232b622d75bf0dc9f3f2dba4c86e" alt="医生团队合影" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">国内顶尖眼科专家团队</h3>
+                        <p class="text-gray-600 mb-6">我们的专家团队由多位经验丰富的眼科医生组成，在各类眼科疾病的诊断和治疗方面具有丰富经验，致力于为患者提供最优质的医疗服务。</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-gray-50 rounded-lg p-4 flex items-start">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="专家头像" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">李教授</h4>
+                                    <p class="text-sm text-gray-500 mb-2">白内障专家</p>
+                                    <p class="text-sm text-gray-600">从事眼科临床工作20余年，完成白内障手术超万例。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4 flex items-start">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="专家头像" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">王主任</h4>
+                                    <p class="text-sm text-gray-500 mb-2">青光眼专家</p>
+                                    <p class="text-sm text-gray-600">专注于青光眼早期诊断和治疗，发表SCI论文30余篇。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-50 rounded-lg p-4 flex items-start">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="专家头像" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">张医生</h4>
+                                    <p class="text-sm text-gray-500 mb-2">屈光手术专家</p>
+                                    <p class="text-sm text-gray-600">擅长各类屈光手术，包括全飞秒、ICL植入等。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-6 text-gray-800">专家访谈</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h4 class="font-semibold text-lg mb-2 text-gray-800">白内障手术最新进展</h4>
+                            <p class="text-gray-600 mb-4">李教授分享新型白内障手术技术的临床应用经验...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">2024-05-10</span>
+                                <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="p-6">
+                            <h4 class="font-semibold text-lg mb-2 text-gray-800">青光眼早期诊断的重要性</h4>
+                            <p class="text-gray-600 mb-4">王主任强调定期眼科检查对青光眼早期发现的关键作用...</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">2024-04-28</span>
+                                <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 疾病知识页 -->
+    <section id="knowledge" class="py-8 bg-gray-50 hidden">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8 text-gray-800">疾病知识</h2>
+            
+            <div class="mb-8">
+                <div class="flex overflow-x-auto space-x-4 pb-4">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-full whitespace-nowrap">白内障</button>
+                    <button class="px-4 py-2 bg-white text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-100">青光眼</button>
+                    <button class="px-4 py-2 bg-white text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-100">近视防控</button>
+                    <button class="px-4 py-2 bg-white text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-100">视网膜疾病</button>
+                    <button class="px-4 py-2 bg-white text-gray-700 rounded-full whitespace-nowrap hover:bg-gray-100">干眼症</button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://p3-search.byteimg.com/obj/labis/764daec0d2657ffa670e4572538d0ad0" alt="视力保护科普" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">白内障的预防与治疗</h3>
+                        <p class="text-gray-600 mb-4">白内障是眼睛晶状体混浊导致的视力下降疾病，常见于老年人。了解白内障的早期症状、预防措施和治疗方案...</p>
+                        <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://p3-search.byteimg.com/obj/labis/4d8e346f0498d461443bd51aafd50831" alt="眼科仪器" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">青光眼诊断技术进展</h3>
+                        <p class="text-gray-600 mb-4">青光眼被称为"视力的小偷"，早期往往没有明显症状。现代诊断技术如何帮助早期发现青光眼...</p>
+                        <button class="text-blue-600 hover:text-blue-800 transition">阅读全文 <i class="fas fa-arrow-right ml-1"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">常见眼科检查项目</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-medium text-gray-800 mb-2">视力检查</h4>
+                        <p class="text-sm text-gray-600">最基本的眼科检查，评估远视力和近视力。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-medium text-gray-800 mb-2">眼压测量</h4>
+                        <p class="text-sm text-gray-600">筛查青光眼的重要指标。</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <h4 class="font-medium text-gray-800 mb-2">眼底检查</h4>
+                        <p class="text-sm text-gray-600">观察视网膜、视神经等眼底结构。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">关于我们</h3>
+                    <p class="text-gray-400">专业眼科医疗资讯平台，提供权威、及时的眼科医疗信息和健康知识。</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">快速链接</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">首页</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">新闻资讯</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">专家观点</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">疾病知识</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@eyehealth.com</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone mr-2"></i> 400-123-4567</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">关注我们</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-red-600 transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2024 眼科医疗资讯平台. 保留所有权利.</p>
+                <p class="mt-2 text-sm">页面内容均由 AI 生成，仅供参考</p>
+                <p class="mt-1 text-sm">created by <a href="https://space.coze.cn" class="text-blue-400 hover:underline">coze space</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 分享弹窗 -->
+    <div id="share-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold">分享文章</h3>
+                <button id="close-share" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <button class="flex flex-col items-center p-2 rounded-lg hover:bg-gray-100">
+                    <div class="w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mb-2">
+                        <i class="fab fa-weixin text-xl"></i>
+                    </div>
+                    <span class="text-sm">微信</span>
+                </button>
+                <button class="flex flex-col items-center p-2 rounded-lg hover:bg-gray-100">
+                    <div class="w-12 h-12 bg-blue-400 text-white rounded-full flex items-center justify-center mb-2">
+                        <i class="fab fa-weibo text-xl"></i>
+                    </div>
+                    <span class="text-sm">微博</span>
+                </button>
+                <button class="flex flex-col items-center p-2 rounded-lg hover:bg-gray-100">
+                    <div class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center mb-2">
+                        <i class="fab fa-qq text-xl"></i>
+                    </div>
+                    <span class="text-sm">QQ</span>
+                </button>
+                <button class="flex flex-col items-center p-2 rounded-lg hover:bg-gray-100">
+                    <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mb-2">
+                        <i class="fas fa-link text-xl"></i>
+                    </div>
+                    <span class="text-sm">复制链接</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 页面导航
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                
+                // 隐藏所有内容区域
+                document.querySelectorAll('section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // 显示目标区域
+                if(targetId === 'home') {
+                    document.getElementById('home').classList.remove('hidden');
+                } else {
+                    document.getElementById(targetId).classList.remove('hidden');
+                }
+                
+                // 滚动到顶部
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // 默认显示首页
+        document.getElementById('home').classList.remove('hidden');
+
+        // 点赞功能
+        const likeBtn = document.getElementById('like-btn');
+        const likeCount = document.getElementById('like-count');
+        
+        if(likeBtn && likeCount) {
+            // 从localStorage获取点赞数
+            let likes = localStorage.getItem('article-likes') || 0;
+            likeCount.textContent = likes;
+            
+            likeBtn.addEventListener('click', () => {
+                likes = parseInt(likes) + 1;
+                likeCount.textContent = likes;
+                localStorage.setItem('article-likes', likes);
+                
+                // 添加动画效果
+                likeBtn.innerHTML = `<i class="fas fa-thumbs-up text-xl mr-2 animate-ping"></i>${likes}`;
+                setTimeout(() => {
+                    likeBtn.innerHTML = `<i class="fas fa-thumbs-up text-xl mr-2"></i>${likes}`;
+                }, 500);
+            });
+        }
+
+        // 评论功能
+        const commentInput = document.getElementById('comment-input');
+        const submitComment = document.getElementById('submit-comment');
+        const commentsList = document.getElementById('comments-list');
+        
+        if(commentInput && submitComment && commentsList) {
+            // 从localStorage加载评论
+            let comments = JSON.parse(localStorage.getItem('article-comments')) || [];
+            
+            // 显示已有评论
+            comments.forEach(comment => {
+                addCommentToDOM(comment);
+            });
+            
+            submitComment.addEventListener('click', () => {
+                const commentText = commentInput.value.trim();
+                if(commentText) {
+                    const newComment = {
+                        id: Date.now(),
+                        text: commentText,
+                        author: '匿名用户',
+                        date: new Date().toLocaleDateString()
+                    };
+                    
+                    // 添加到DOM
+                    addCommentToDOM(newComment);
+                    
+                    // 保存到localStorage
+                    comments.push(newComment);
+                    localStorage.setItem('article-comments', JSON.stringify(comments));
+                    
+                    // 清空输入框
+                    commentInput.value = '';
+                }
+            });
+            
+            function addCommentToDOM(comment) {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'comment-item bg-gray-50 p-4 rounded-lg';
+                commentElement.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="font-medium">${comment.author}</span>
+                        <span class="text-sm text-gray-500">${comment.date}</span>
+                    </div>
+                    <p class="text-gray-700">${comment.text}</p>
+                `;
+                commentsList.appendChild(commentElement);
+            }
+        }
+
+        // 分享功能
+        const shareBtn = document.getElementById('share-btn');
+        const shareModal = document.getElementById('share-modal');
+        const closeShare = document.getElementById('close-share');
+        
+        if(shareBtn && shareModal && closeShare) {
+            shareBtn.addEventListener('click', () => {
+                shareModal.classList.remove('hidden');
+            });
+            
+            closeShare.addEventListener('click', () => {
+                shareModal.classList.add('hidden');
+            });
+            
+            // 点击模态框外部关闭
+            shareModal.addEventListener('click', (e) => {
+                if(e.target === shareModal) {
+                    shareModal.classList.add('hidden');
+                }
+            });
+        }
+
+        // 文章卡片点击事件
+        document.querySelectorAll('.article-card button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.article-card');
+                if(card) {
+                    // 隐藏所有内容区域
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.add('hidden');
+                    });
+                    
+                    // 显示新闻详情页
+                    document.getElementById('news-detail').classList.remove('hidden');
+                    
+                    // 滚动到顶部
+                    window.scrollTo(0, 0);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
